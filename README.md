@@ -5,7 +5,7 @@ Lightning talk on go Benchmark
 
 Can be viewed live here:
 
-http://go-talks.appspot.com/github.com/dherbst/go-lightning-benchmark/lightning-benchmark.slide#1
+http://go-talks.appspot.com/github.com/dherbst/go-lightning-benchmark/lightning-bench.slide#1
 
 Or install go present
 
