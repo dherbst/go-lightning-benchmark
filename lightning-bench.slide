@@ -1,0 +1,42 @@
+Go benchmark
+Lightning talk
+11 Jun 2014
+Tags: golang, go, benchmark
+
+Darrel Herbst
+DramaFever.com
+http://github.com/dherbst
+@darrelherbst
+
+* Use benchmark when you want to see how fast something is going to be
+
+We had an argument about what is the best way to parse a long string when you are looking for something like 'country_code=US' in part of it.  Where the 'US' is one of the iso3166-2 country codes.
+
+ - @paddyforan said, "you know you could do this in a lot less code with the benchmark package"
+
+.code first.go
+
+* The right way to use benchmark
+
+Import the testing package
+Write your tests, but name them "BenchmarkXYZ" instead of "TestXYZ"
+
+.code right.go
+
+
+* When you run it, it will give you the benchmark
+
+Your code
+
+.code finalsnippet.go
+
+Run it like this, notice the different values of `N`?
+
+    go test -bench=.
+    PASS
+    BenchmarkGetCountryCodeRegex           1000000          1894 ns/op
+    BenchmarkGetCountryCodeIndex          10000000           158 ns/op
+    BenchmarkGetCountryCodeByParsing        200000          9836 ns/op
+    ok      github.com/dherbst/parser  5.742s
+
+What's nice is that the benchmarks are in the code, but don't get run via `go test` automatically.
